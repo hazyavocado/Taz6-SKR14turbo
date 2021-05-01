@@ -16,7 +16,9 @@ no cooling part fan,
 
 hemera extruder, 
 
-manual bed leveling enabled to do a manual mesh. 
+bltouch,
+
+(or manual bed leveling enabled to do a manual mesh. )
 
 sensorless homing on x and y. 
 
