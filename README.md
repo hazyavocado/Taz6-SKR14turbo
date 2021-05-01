@@ -1,15 +1,27 @@
-# Taz6-SKR14turbo
 
-configuration files for marlin 2.0.x
+
+## configuration files for marlin 2.0.x
+
+
+
+
 
 taz 6 with 32 bit btt skr 1.4 turbo board, 
+
 tmc2209 drivers, 
+
 aux bed heater mosfet added, heats bed at full power (255) , lulzbot default is 208
+
 no cooling part fan, 
+
 hemera extruder, 
+
 manual bed leveling enabled to do a manual mesh. 
+
 sensorless homing on x and y. 
+
 z uses the silver push button
+
 no wipe, just heat up and print. 
 
 
@@ -18,7 +30,8 @@ no wipe, just heat up and print.
 
 
 
-starting g-code: 
+
+## starting g-code: 
 
 M75 ; start GLCD timer
 
