@@ -132,7 +132,7 @@
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "taz hemera"
+#define CUSTOM_MACHINE_NAME "keith hemera"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -623,7 +623,7 @@
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
 //#define USE_YMIN_PLUG
-//#define USE_ZMIN_PLUG
+#define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
@@ -657,7 +657,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true // Set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -826,7 +826,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-//#define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -845,7 +845,7 @@
 //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-#define USE_PROBE_FOR_Z_HOMING
+//#define USE_PROBE_FOR_Z_HOMING
 
 /**
  * Z_MIN_PROBE_PIN
@@ -862,7 +862,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-//#define Z_MIN_PROBE_PIN P0_10 // Pin 32 is the RAMPS default
+//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -883,7 +883,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-//#define FIX_MOUNTED_PROBE
+#define FIX_MOUNTED_PROBE
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -900,7 +900,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#define BLTOUCH
+//#define BLTOUCH
 
 /**
  * Pressure sensor with a BLTouch-like interface
@@ -987,7 +987,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 20, -44, 3.5 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 0, -1.2 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1011,7 +1011,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 2
 //#define EXTRA_PROBING    1
 
 /**
@@ -1235,15 +1235,15 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR
+//#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
-//#define MESH_BED_LEVELING
+#define MESH_BED_LEVELING
 
 /**
  * Normally G28 leaves leveling disabled on completion. Enable
  * this option to have G28 restore the prior leveling state.
  */
-//#define RESTORE_LEVELING_AFTER_G28
+#define RESTORE_LEVELING_AFTER_G28
 
 /**
  * Enable detailed logging of G28, G29, M48, etc.
@@ -1282,7 +1282,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1292,7 +1292,7 @@
 
     // Beyond the probed grid, continue the implied tilt?
     // Default is to maintain the height of the nearest edge.
-    #define EXTRAPOLATE_BEYOND_GRID
+    //#define EXTRAPOLATE_BEYOND_GRID
 
     //
     // Experimental Subdivision of the grid by Catmull-Rom method.
@@ -1389,8 +1389,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-  #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE) / 2)  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT ((Y_BED_SIZE) / 2)  // Y point for Z homing
+  #define Z_SAFE_HOMING_X_POINT (-18)  // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT (260)  // Y point for Z homing
 #endif
 
 // Homing speeds (mm/min)
@@ -2407,7 +2407,7 @@
  * Set this manually if there are extra servos needing manual control.
  * Set to 0 to turn off servo support.
  */
-#define NUM_SERVOS 1 // Servo index starts with 0 for M280 command
+//#define NUM_SERVOS 3 // Servo index starts with 0 for M280 command
 
 // (ms) Delay  before the next move will start, to give the servo time to reach its target angle.
 // 300ms is a good value but you can try less delay.
